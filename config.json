@@ -1,0 +1,10 @@
+{
+  "token": "",
+  "port": 28444,
+  "listen": "127.0.0.1",
+  "workDir": "/var/lib/mytgdsch/",
+  "url:": "https://example.com/",
+  "path": "mytgdsch/",
+  "timezoneOffset": 10800,
+  "className": "11о1"
+}
