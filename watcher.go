@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-var loc = time.FixedZone("", timezoneOffset)
+var loc *time.Location
 
 func everyDay(s *Schedule, t *Timetable) {
 	for {
@@ -37,6 +37,12 @@ func completeThisDay(s *Schedule, t *Timetable) {
 
 		if i == 0 {
 			to := time.Date(now.Year(), now.Month(), now.Day(), t[0].hour, t[0].minute-15, 0, 0, loc)
+
+			if to.Sub(time.Now().Add(offset)).Milliseconds() < 0 {
+				// Пропускаем прошедшие предметы
+				continue
+			}
+
 			go doWhen(func() {
 				alertAboutLesson(val, t, i)
 			}, to)
@@ -45,6 +51,11 @@ func completeThisDay(s *Schedule, t *Timetable) {
 		}
 
 		to := time.Date(now.Year(), now.Month(), now.Day(), t[i-1].hour, t[i-1].minute+40, 0, 0, loc)
+
+		if to.Sub(time.Now().Add(offset)).Milliseconds() < 0 {
+			// Пропускаем прошедшие предметы
+			continue
+		}
 
 		h := i
 

@@ -8,21 +8,21 @@ import (
 	"time"
 )
 
-const configPath = "config.json"
+//const configPath = "config.json"
+const configPath = "/etc/mytgdsch/config.json"
 
 //var offset = time.Until(time.Date(2020, 9, 14, 8, 54, 55, 0, time.FixedZone("UTC+3", 3*60*60)))
-//var offset = time.Until(time.Date(2020, 9, 13, 23, 59, 55, 0, time.FixedZone("UTC+3", 3*60*60)))
+//var offset = time.Until(time.Date(2020, 9, 16, 10, 0, 0, 0, time.FixedZone("UTC+3", 3*60*60)))
 var offset = time.Duration(0)
 
 var (
-	botToken       string
-	botPort        string
-	botUrl         string
-	botPath        string
-	listen         string
-	workDir        string
-	className      string
-	timezoneOffset int
+	botToken  string
+	botPort   string
+	botUrl    string
+	botPath   string
+	listen    string
+	workDir   string
+	className string
 )
 
 type Timetable [9]TimetableItem
@@ -91,11 +91,11 @@ func getTimetable() *Timetable {
 		},
 		TimetableItem{
 			hour:   14,
-			minute: 35,
+			minute: 40,
 		},
 		TimetableItem{
 			hour:   15,
-			minute: 25,
+			minute: 30,
 		},
 	}
 
@@ -126,10 +126,10 @@ func openConfig() {
 
 	botToken = value.Token
 	botPort = strconv.Itoa(value.Port)
-	botUrl = value.Url
-	botPath = value.Path
+	botUrl = value.Url + "/"
+	botPath = value.Path + "/"
 	workDir = value.WorkDir
 	listen = value.Listen
-	timezoneOffset = value.TimezoneOffset
+	loc = time.FixedZone("", value.TimezoneOffset)
 	className = value.ClassName
 }
