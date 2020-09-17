@@ -43,8 +43,10 @@ func completeThisDay(s *Schedule, t *Timetable) {
 				continue
 			}
 
+			h := i
+
 			go doWhen(func() {
-				alertAboutLesson(val, t, i)
+				alertAboutLesson(val, t, h)
 			}, to)
 
 			continue
@@ -77,7 +79,7 @@ func alertAboutLesson(l Lesson, t *Timetable, n int) {
 	msg := "Следующий урок – " + l.Name + "\r\n" +
 		"Кабинет: " + l.ClassRoom + "\r\n" +
 		"Учитель: " + l.TeacherName + "\r\n" +
-		"Начало урока: " + t[n].toString()
+		"Время урока: " + t[n].toString() + " - " + t[n].addMinutes(40).toString()
 
 	sendToAll(msg)
 }

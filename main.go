@@ -12,7 +12,7 @@ import (
 const configPath = "/etc/mytgdsch/config.json"
 
 //var offset = time.Until(time.Date(2020, 9, 14, 8, 54, 55, 0, time.FixedZone("UTC+3", 3*60*60)))
-//var offset = time.Until(time.Date(2020, 9, 16, 10, 0, 0, 0, time.FixedZone("UTC+3", 3*60*60)))
+//var offset = time.Until(time.Date(2020, 9, 17, 8, -1, 40, 0, time.FixedZone("UTC+3", 3*60*60)))
 var offset = time.Duration(0)
 
 var (
@@ -47,6 +47,14 @@ func (t TimetableItem) toString() string {
 	}
 
 	return out
+}
+
+func (t TimetableItem) addMinutes(a int) TimetableItem {
+	n := new(TimetableItem)
+	n.minute = (t.minute + a) % 60
+	n.hour = (t.hour + (t.minute+a)/60) % 24
+
+	return *n
 }
 
 func main() {
