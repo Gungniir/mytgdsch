@@ -4,6 +4,7 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"log"
 	"net/http"
+	"strings"
 )
 
 var bot *tgbotapi.BotAPI
@@ -54,6 +55,8 @@ func startListeningHttp() {
 
 func sendToAll(s string) {
 	chats := getEnabledChats()
+	log.Printf("Start messsanging to %d user(s)\r\n", len(chats))
+
 	for _, chat := range chats {
 		_, err := bot.Send(tgbotapi.NewMessage(chat, s))
 		if err != nil {
@@ -61,6 +64,8 @@ func sendToAll(s string) {
 			disableChat(chat)
 		}
 	}
+
+	log.Printf("Success :)\r\n")
 }
 
 func handleUpdate(update *tgbotapi.Update) {
@@ -79,7 +84,7 @@ func handleUpdate(update *tgbotapi.Update) {
 		}
 	}
 
-	switch update.Message.Command() {
+	switch strings.ToLower(update.Message.Command()) {
 	case "start":
 		msg.Text = "Привеет! Данный бот напоминает, в какой кабинет нужно идти в какой сейчас будет урок :)\r\n" +
 			"Для того, чтобы включить напоминания введи /enable\r\n" +

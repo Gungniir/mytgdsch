@@ -25,11 +25,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab09478d-a4da-4ed2-96bb-148d1d7e4694" name="Default Changelist" comment="Cloning code base">
+    <list default="true" id="ab09478d-a4da-4ed2-96bb-148d1d7e4694" name="Default Changelist" comment="Фикс нулевого урока, из-за которого происходил краш&#10;И добавлено время урока, вместо начала :)">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compile.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/DEBIAN/control" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/DEBIAN/copyright" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/DEBIAN/dirs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/DEBIAN/postinst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/etc/mytgdsch/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/etc/systemd/system/mytgdsch.service" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/usr/sbin/mytgdsch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/deb/var/lib/schedule.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/win64/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/win64/mytgdsch.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/win64/schedule.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mytgdsch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mytgdsch.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/watcher.go" beforeDir="false" afterPath="$PROJECT_DIR$/watcher.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tg.go" beforeDir="false" afterPath="$PROJECT_DIR$/tg.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,9 +86,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
@@ -85,14 +102,25 @@
     <property name="settings.editor.selected.configurable" value="com.intellij.profiler.configurations.ui.EditProfilerConfigurationsComponent" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="Z:\Вова\Проекты\mytgdsch\mytgdsch" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="Z:\Вова\Проекты\mytgdsch" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\Вова\Проекты\mytgdsch\dist\deb\var\lib" />
+      <recent name="Z:\Вова\Проекты\mytgdsch\dist\deb" />
+      <recent name="Z:\Вова\Проекты\mytgdsch\mytgdsch" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Batch.compile">
+    <configuration name="compile" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="mytgdsch" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="Z:\Вова\Проекты\mytgdsch" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="compile.bat" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build mytgdsch/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="mytgdsch" />
       <working_directory value="$PROJECT_DIR$" />
@@ -102,6 +130,11 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Batch.compile" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +177,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cloning code base" />
     <MESSAGE value="Фикс чтения файла конфигурации, изменение расписания, добавлена возможность указывать часовой пояс" />
-    <option name="LAST_COMMIT_MESSAGE" value="Фикс чтения файла конфигурации, изменение расписания, добавлена возможность указывать часовой пояс" />
+    <MESSAGE value="Фикс нулевого урока, из-за которого происходил краш&#10;И добавлено время урока, вместо начала :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс нулевого урока, из-за которого происходил краш&#10;И добавлено время урока, вместо начала :)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="711" y="343" key="#Notifications" timestamp="1600194064172">
@@ -156,6 +190,11 @@
     </state>
     <state x="414" y="174" width="1092" height="835" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600194075148" />
     <state x="414" y="174" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599817743885" />
+    <state x="254" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600593004976">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="254" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600593004976" />
+    <state x="254" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1600413708466" />
     <state x="585" y="106" key="CommitChangelistDialog2" timestamp="1600056053755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -176,45 +215,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="838" y="417" width="616" height="205" key="Github.ShareDialog/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600055870880" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1600368707611">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1600593478637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707611" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599819070243" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1600368707611">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600593478637" />
+    <state width="554" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1600441813872" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1600593478636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707611" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599819070243" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1600368707611">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600593478636" />
+    <state width="554" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1600441813872" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1600593478636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707611" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599819070242" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1600368707611">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600593478636" />
+    <state width="554" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1600441813872" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1600593478637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707611" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599819070243" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1600368707499">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600593478637" />
+    <state width="554" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1600441813872" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1600368866503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707499" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368866503" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599818087715" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1600368707499">
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1600368866503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707499" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368866503" />
     <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599818087714" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1600368707499">
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1600368866502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707499" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368866502" />
     <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599818087714" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1600368707499">
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1600368866503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368707499" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368866503" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599818087715" />
     <state x="796" y="222" key="RollbackChangesDialog" timestamp="1600189486705">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -224,10 +263,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600194102264" />
-    <state x="2380" y="387" key="Vcs.Push.Dialog.v2" timestamp="1600278027335">
-      <screen x="1920" y="179" width="1600" height="860" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1600368856366">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600056610905" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600368856366" />
     <state x="2380" y="387" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.179.1600.860@1920.179.1600.860" timestamp="1600278027335" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1600191760946">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -241,10 +280,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600056264258" />
-    <state x="2012" y="271" width="1416" height="676" key="dock-window-1" timestamp="1600362362364">
+    <state x="2012" y="271" width="1416" height="676" key="dock-window-1" timestamp="1600586445034">
       <screen x="1920" y="179" width="1600" height="860" />
     </state>
-    <state x="2012" y="271" width="1416" height="676" key="dock-window-1/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600362362364" />
+    <state x="2012" y="271" width="1416" height="676" key="dock-window-1/0.0.1920.1040/1920.179.1600.860@0.0.1920.1040" timestamp="1600586445034" />
+    <state x="-7" y="0" width="614" height="567" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1600441812655" />
     <state x="761" y="426" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1600055909773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
